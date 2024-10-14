@@ -1,0 +1,5 @@
+<apx-chart *ngIf="chartOptions$ | async as chartOptions"
+[chart]="chartOptions.chart"
+[series]="chartOptions.series"
+[xaxis]="chartOptions.xaxis"
+[title]="chartOptions.title" id="chart"></apx-chart>

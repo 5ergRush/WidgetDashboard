@@ -1,0 +1,21 @@
+<div class="add-widget-container">
+    <h2>Add Widget</h2>
+    <form (submit)="addWidget()" name="add-widget-form">
+      <label>Widget Type:</label>
+      <select [(ngModel)]="widgetType" name = "widgetType">
+        <option value="task-progress">Task Progress</option>
+        <option value="timeline-progress">Timeline Progress</option>
+        <option value="task-count">Task Count</option>
+      </select>
+      <br>
+      <label>Project:</label>
+      <ng-content *ngIf = "projects$ | async as projects">
+      <select [(ngModel)]="projectId" name = "projectId">
+        <option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</option>
+      </select>
+    </ng-content>
+      <br>
+      <button type="submit">Add Widget</button>
+      <button (click)="closeModal()">Close</button>
+    </form>
+  </div>

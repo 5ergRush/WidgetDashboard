@@ -1,0 +1,29 @@
+<div class="dashboard">
+    <div *ngFor="let widget of widgetsSubject$ | async"
+    class="widget-container"
+    cdkDropList
+    cdkDrag
+    (cdkDragEnded)="onDragEnd($event, widget)"
+    [style.left.px]="widget.position?.x" 
+    [style.top.px]="widget.position?.y">
+      <div  class = "widget-element">  
+      <app-widget-task-progress *ngIf="widget.type === 'task-progress'"
+      [projectId]="widget.projectId"
+      [height]="widget.height"
+      [width]="widget.width" async></app-widget-task-progress>
+      <app-widget-timeline-progress *ngIf="widget.type === 'timeline-progress'"
+      [projectId]="widget.projectId"
+      [height]="widget.height"
+      [width]="widget.width" async></app-widget-timeline-progress>
+      <app-widget-task-count *ngIf="widget.type === 'task-count'"
+      [projectId]="widget.projectId"
+      [height]="widget.height"
+      [width]="widget.width" async></app-widget-task-count>
+      <button (click)="removeWidget(widget)" class = "controlButton removeWidgetButton">Remove widget</button>
+    </div>
+    <div class="resize-handle" (mousedown)="onResize($event, widget)"></div>
+    </div>
+    <button (click)="openAddWidgetModal()" class="addWidgetButton controlButton">Add Widget</button>
+    <button (click)="storeConfiguration()" class="saveConfigsButton controlButton">Save Configuration</button>
+    <button (click)="resetConfiguration()" class="resetConfigsButton controlButton">Reset Configuration</button>
+  </div>

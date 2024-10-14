@@ -1,0 +1,61 @@
+.controlButton {
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+.addWidgetButton {
+    left:25%;
+    position: fixed;
+    bottom: 0.5rem;
+  }
+.saveConfigsButton {
+    position: fixed;
+    bottom: 0.5rem;
+  }
+.resetConfigsButton {
+    left:75%;
+    position: fixed;
+    bottom: 0.5rem;
+  }
+
+.widget-element {
+    display: inline-block;
+  padding: 20px;
+  width: auto;
+  height: auto;
+  border : 1px solid #ccc;
+}
+.removeWidgetButton {
+    transform: translateX(100%);
+  }
+#widget-dialog{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.widget-container {
+    display: inline-block;
+    position: relative;
+}
+  
+  .resize-handle {
+    width: 10px;
+    height: 10px;
+    background: blue; /* Or any color you prefer */
+    cursor: se-resize; /* Change cursor to indicate resizing */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
